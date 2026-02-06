@@ -1,0 +1,9 @@
+package com.devsuperior.exercicio.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class InvoiceService {
+
+
+}
