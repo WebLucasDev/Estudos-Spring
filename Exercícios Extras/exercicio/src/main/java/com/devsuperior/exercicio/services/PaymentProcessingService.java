@@ -19,10 +19,10 @@ public class PaymentProcessingService {
             return invoice.getAmount() * debitCardPercentage;
         }
         if (invoice.getPaymentMethod().equals(PaymentMethod.CASH)) {
-            return invoice.getAmount() * 0;
+            return 0.0;
         }
         if (invoice.getPaymentMethod().equals(PaymentMethod.PIX)) {
-            return invoice.getAmount() * pixFee;
+            return pixFee;
         }
         return 0;
     }
