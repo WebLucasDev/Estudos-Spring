@@ -15,7 +15,6 @@ public class Payment {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
 
-
     @OneToOne
     @MapsId
     private Order order;
