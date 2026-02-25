@@ -20,10 +20,9 @@ public class CategoriaProduto {
 
     public CategoriaProduto() {}
 
-    public CategoriaProduto(Long id, String nome, Set<Produto> produtos) {
+    public CategoriaProduto(Long id, String nome) {
         this.id = id;
         this.nome = nome;
-        this.produtos = produtos;
     }
 
     public Long getId() {
@@ -51,14 +50,11 @@ public class CategoriaProduto {
         if (o == null || getClass() != o.getClass()) return false;
 
         CategoriaProduto that = (CategoriaProduto) o;
-        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(produtos, that.produtos);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(nome);
-        result = 31 * result + Objects.hashCode(produtos);
-        return result;
+        return Objects.hashCode(id);
     }
 }

@@ -23,12 +23,11 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, String email, String telefone, Set<Pedido> pedidos) {
+    public Cliente(Long id, String nome, String email, String telefone) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-        this.pedidos = pedidos;
     }
 
     public Long getId() {
@@ -72,16 +71,11 @@ public class Cliente {
         if (o == null || getClass() != o.getClass()) return false;
 
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(email, cliente.email) && Objects.equals(telefone, cliente.telefone) && Objects.equals(pedidos, cliente.pedidos);
+        return Objects.equals(id, cliente.id);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(nome);
-        result = 31 * result + Objects.hashCode(email);
-        result = 31 * result + Objects.hashCode(telefone);
-        result = 31 * result + Objects.hashCode(pedidos);
-        return result;
+        return Objects.hashCode(id);
     }
 }

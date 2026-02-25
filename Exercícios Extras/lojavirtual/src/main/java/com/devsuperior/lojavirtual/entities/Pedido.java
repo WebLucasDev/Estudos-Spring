@@ -68,15 +68,11 @@ public class Pedido {
         if (o == null || getClass() != o.getClass()) return false;
 
         Pedido pedido = (Pedido) o;
-        return Objects.equals(id, pedido.id) && Objects.equals(momento, pedido.momento) && status == pedido.status && Objects.equals(cliente, pedido.cliente);
+        return Objects.equals(id, pedido.id);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(momento);
-        result = 31 * result + Objects.hashCode(status);
-        result = 31 * result + Objects.hashCode(cliente);
-        return result;
+        return Objects.hashCode(id);
     }
 }
