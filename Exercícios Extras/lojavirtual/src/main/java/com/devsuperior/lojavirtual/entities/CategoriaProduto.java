@@ -3,6 +3,7 @@ package com.devsuperior.lojavirtual.entities;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -13,4 +14,51 @@ public class CategoriaProduto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @OneToMany(mappedBy = "categoriaProduto")
+    private Set<Produto> produtos = new HashSet<>();
+
+    public CategoriaProduto() {}
+
+    public CategoriaProduto(Long id, String nome, Set<Produto> produtos) {
+        this.id = id;
+        this.nome = nome;
+        this.produtos = produtos;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Set<Produto> getProdutos() {
+        return produtos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CategoriaProduto that = (CategoriaProduto) o;
+        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(produtos, that.produtos);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(id);
+        result = 31 * result + Objects.hashCode(nome);
+        result = 31 * result + Objects.hashCode(produtos);
+        return result;
+    }
 }
