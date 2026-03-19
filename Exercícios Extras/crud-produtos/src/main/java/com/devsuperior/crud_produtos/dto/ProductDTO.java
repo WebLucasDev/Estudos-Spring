@@ -1,10 +1,7 @@
 package com.devsuperior.crud_produtos.dto;
 
 import com.devsuperior.crud_produtos.entities.Product;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +25,7 @@ public class ProductDTO {
     private Double price;
 
     @NotNull
-    @Positive(message = "A quantidade do produto deve ser maior que zero!")
+    @PositiveOrZero(message = "A quantidade do produto não pode ser negativa!")
     private Integer stock;
 
     public ProductDTO(Product entity) {
